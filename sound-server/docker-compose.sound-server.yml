@@ -15,6 +15,7 @@ services:
       - snapcast-fifos:/audio/
       - /etc/sound-server/snapserver.conf/:/config/snapserver.conf:ro
       - snapcast-data:/data/
+
   mopidy:
     image: ghcr.io/sweisgerber/mopidy:latest
     environment:
