@@ -24,7 +24,7 @@ services:
       - TZ=Europe/Zurich
       - DOCKER_MODS=linuxserver/mods:universal-package-install
       - INSTALL_PIP_PACKAGES=Mopidy-TuneIn
-      # - INSTALL_PACKAGES=mopidy-podcast
+      - INSTALL_PACKAGES=gst-plugins-bad
     ports:
       - 6600:6600/tcp # MPD port
       - 6680:6680/tcp # Mopidy Web Interface
