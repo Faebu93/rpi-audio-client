@@ -10,8 +10,8 @@ cd rpi-audio-client
 ## Install service
 
 ```bash
+sudo git clone https://github.com/Faebu93/docker-mopidy.git /opt/sound-server/docker-mopidy
 sudo install -D -t /etc/sound-server ./sound-server/mopidy.conf ./sound-server/snapserver.conf
-sudo touch /etc/sound-server/snapserver.json
 sudo install -D -m 644 ./sound-server/docker-compose.sound-server.yml /opt/sound-server/docker-compose.sound-server.yml
 sudo install -m 644 ./sound-server/sound-server.service /etc/systemd/system
 sudo systemctl daemon-reload

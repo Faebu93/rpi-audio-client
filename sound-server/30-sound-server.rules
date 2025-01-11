@@ -14,7 +14,7 @@ table inet filter {
 
                 # Mopidy
                 # MPD interface, maybe not needed
-                # oifname "sound-server" tcp dport 6600
+                oifname "sound-server" tcp dport 6600
                 # Mopidy Web interface
                 oifname "sound-server" tcp dport 6680
 
