@@ -13,7 +13,7 @@ services:
       - sound-server
     volumes:
       - snapcast-fifos:/audio/
-      - /etc/sound-server/snapserver.conf/:/config/snapserver.conf:ro
+      - ./snapserver.conf/:/config/snapserver.conf:ro
       - snapcast-data:/data/
 
   mopidy:
@@ -22,6 +22,9 @@ services:
       - PUID=1000 # user ID which the mopidy service will run as, needs permissions to access the music
       - PGID=1000 # group ID which the mopidy service will run as, needs permissions to access the music
       - TZ=Europe/Zurich
+      - DOCKER_MODS=linuxserver/mods:universal-package-install
+      - INSTALL_PIP_PACKAGES=Mopidy-TuneIn
+      # - INSTALL_PACKAGES=mopidy-podcast
     ports:
       - 6600:6600/tcp # MPD port
       - 6680:6680/tcp # Mopidy Web Interface
@@ -33,7 +36,7 @@ services:
       retries: 5
     volumes:
       - iris-data:/data/ # Iris-specific storage
-      - /etc/sound-server/mopidy.conf:/config/mopidy.conf:ro
+      - ./mopidy.conf:/config/mopidy.conf:ro
       - /srv/nc-data-no-bkp/Music:/music/:ro
       - snapcast-fifos:/tmp/snapcast-fifos
 
