@@ -1,6 +1,6 @@
 services:
   snapserver:
-    image: docker.io/sweisgerber/snapcast:latest
+    image: ghcr.io/sweisgerber/snapcast:latest
     ports:
       - 1704:1704/tcp # Snapcast audio stream
       - 1705:1705/tcp # JSON-RPC
@@ -13,10 +13,10 @@ services:
       - sound-server
     volumes:
       - snapcast-fifos:/audio/
-      - /etc/sound-server/snapserver-conf/:/config/:ro
+      - /etc/sound-server/snapserver.conf/:/config/snapserver.conf:ro
       - snapcast-data:/data/
   mopidy:
-    build: /opt/sound-server/docker-mopidy
+    image: ghcr.io/sweisgerber/docker-mopidy:latest
     environment:
       - PUID=1000 # user ID which the mopidy service will run as, needs permissions to access the music
       - PGID=1000 # group ID which the mopidy service will run as, needs permissions to access the music
