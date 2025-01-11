@@ -16,7 +16,7 @@ services:
       - /etc/sound-server/snapserver.conf/:/config/snapserver.conf:ro
       - snapcast-data:/data/
   mopidy:
-    image: ghcr.io/sweisgerber/docker-mopidy:latest
+    image: ghcr.io/sweisgerber/mopidy:latest
     environment:
       - PUID=1000 # user ID which the mopidy service will run as, needs permissions to access the music
       - PGID=1000 # group ID which the mopidy service will run as, needs permissions to access the music
